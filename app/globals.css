@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-cedar-blue: #4A9EFF;
+  --color-cedar-blue-dark: #1A3EAF;
+  --color-cedar-blue-hover: #2D7EF0;
+  --color-cedar-navy: #0D1B3E;
+  --color-cedar-black: #0A0A0A;
+  --font-sans: var(--font-geist-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.7s ease-out both;
+  }
+  .delay-100 { animation-delay: 0.10s; }
+  .delay-200 { animation-delay: 0.20s; }
+  .delay-300 { animation-delay: 0.30s; }
+  .delay-400 { animation-delay: 0.40s; }
+  .delay-500 { animation-delay: 0.50s; }
+  .delay-600 { animation-delay: 0.60s; }
+}
+
+/* ─── Brand gradients (logo-derived: black → dark navy) ─────────────────── */
+
+.gradient-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #0d1020 50%, #0D1B3E 100%);
+}
+
+.gradient-cedar {
+  background: linear-gradient(135deg, #0d1020 0%, #0D1B3E 100%);
+}
+
+/* Blue electric text highlight (matches logo </>  color) */
+.text-gradient {
+  background: linear-gradient(90deg, #4A9EFF 0%, #7EC8FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card interaction ───────────────────────────────────────────────────── */
+
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.10);
+}
